@@ -31,7 +31,12 @@ namespace PreformWPF
 
         private void btnHide_Click(object sender, RoutedEventArgs e)
         {
+            this.WindowState = WindowState.Minimized;
+        }
 
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

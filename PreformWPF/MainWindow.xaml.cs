@@ -40,14 +40,14 @@ namespace PreformWPF
             if (VerifyUser(txtUsername.Text, txtPassword.Password))
             {
                 MessageBox.Show("Вы успешно вошли!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                HubWindow Hub = new HubWindow();
+                this.Close();
+                Hub.Show();
             }
             else
             {
                 MessageBox.Show("Логин или пароль введены неверно!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            HubWindow Hub = new HubWindow();
-            this.Close();
-            Hub.Show();
         }
         private bool VerifyUser(string username, string password)
         {

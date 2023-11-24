@@ -27,13 +27,13 @@
                 <Button x:Name="Page3" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page3" Background="#5B0888" Foreground="#E5CFF7"/>
             </StackPanel>
             <StackPanel Height="100" Width="262" VerticalAlignment="Top">
-                <Button x:Name="Page4" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page2" Background="#5B0888" Foreground="#E5CFF7"/>
+                <Button x:Name="Page4" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page4" Background="#5B0888" Foreground="#E5CFF7"/>
             </StackPanel>
             <StackPanel Height="100" Width="262" VerticalAlignment="Top">
-                <Button x:Name="Page5" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page2" Background="#5B0888" Foreground="#E5CFF7"/>
+                <Button x:Name="Page5" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page5" Background="#5B0888" Foreground="#E5CFF7"/>
             </StackPanel>
             <StackPanel Height="100" Width="262" VerticalAlignment="Top">
-                <Button x:Name="Page6" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page2" Background="#5B0888" Foreground="#E5CFF7"/>
+                <Button x:Name="Page6" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Content="Page6" Background="#5B0888" Foreground="#E5CFF7"/>
             </StackPanel>
             <StackPanel Width="100" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Hide"  x:Name="btnHide" Click="btnHide_Click">
