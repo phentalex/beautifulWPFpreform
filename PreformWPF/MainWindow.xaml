@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PreformWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Grid MouseDown="Border_MouseDown">
+    <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                 <GradientStop Color="#5B0888" Offset="1" />

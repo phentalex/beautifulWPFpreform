@@ -38,7 +38,7 @@ namespace PreformWPF
             {
                 con.Close();
             }
-            if (VerifyUser(txtUsername.Text, txtPassword.Password))
+            if (VerifyUser(txtUsername.Text.Trim(), txtPassword.Password))
             {
                 MessageBox.Show("Вы успешно вошли!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                 HubWindow Hub = new HubWindow();
@@ -74,7 +74,7 @@ namespace PreformWPF
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            this.DragMove();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

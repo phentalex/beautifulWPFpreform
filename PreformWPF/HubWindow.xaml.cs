@@ -26,11 +26,6 @@ namespace PreformWPF
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
         private void btnHide_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -41,12 +36,37 @@ namespace PreformWPF
             Application.Current.Shutdown();
         }
 
+        private void Move_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
         private void Page1_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Page1();
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void Page2_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Page2();
+        }
+
+        private void Page3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page6_Click(object sender, RoutedEventArgs e)
         {
 
         }
