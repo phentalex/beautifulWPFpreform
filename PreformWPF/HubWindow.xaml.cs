@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PreformWPF
@@ -22,6 +23,7 @@ namespace PreformWPF
         public HubWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -37,6 +39,16 @@ namespace PreformWPF
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Page1_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Page1();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

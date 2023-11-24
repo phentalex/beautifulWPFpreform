@@ -29,6 +29,7 @@ namespace PreformWPF
         {
             InitializeComponent();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString.ToString();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
