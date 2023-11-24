@@ -45,6 +45,9 @@ namespace PreformWPF
             {
                 MessageBox.Show("Логин или пароль введены неверно!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            HubWindow Hub = new HubWindow();
+            this.Close();
+            Hub.Show();
         }
         private bool VerifyUser(string username, string password)
         {
