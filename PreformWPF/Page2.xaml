@@ -3,15 +3,53 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:PreformWPF"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="980" d:DesignWidth="1920"
       Title="Page2">
 
-    <Grid>
+    <Grid Cursor="">
         <Grid.Background>
             <SolidColorBrush Color="#9D76C1" Opacity="0.8"/>
         </Grid.Background>
-        <TextBlock Text="Page2" Foreground="#9D76C1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64"/>
+
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button x:Name="btn_Add" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Margin="10"  Opacity="0.6" 
+        VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="260" Background="#F1EAFF" Foreground="#610C9F"
+        Click="btn_Add_Click" Content="Добавить отгрузку" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button x:Name="btn_Edit" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Margin="10"  Opacity="0.6" 
+VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="260" Background="#F1EAFF" Foreground="#610C9F" 
+Click="btn_Add_Click" Content="Редактировать отгрузку" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button x:Name="btn_Delete" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Margin="10"  Opacity="0.6" 
+VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="260" Background="#F1EAFF" Foreground="#610C9F" 
+Click="btn_Add_Click" Content="Удалить отгрузку" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Margin="120,110">
+            <StackPanel Height="75" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock TextWrapping="Wrap" Text="Найти" Foreground="#E5CFF7" FontSize="20" Margin="0,0,0,10"/>
+                <TextBox x:Name="SerchBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#610C9F" 
+                         materialDesign:HintAssist.Hint="Поиск" Width="300" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <DataGrid x:Name="dgShipping" d:ItemsSource="{Binding}" Height="700" Width="1600" Margin="0,140,0,0" AutoGenerateColumns="False" RowEditEnding="dgShipping_RowEditEnding" AddingNewItem="dgShipping_AddingNewItem" BeginningEdit="dgShipping_BeginningEdit">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header ="Статус"/>
+                <DataGridTextColumn Header="Контрагент"/>
+                <DataGridTextColumn Header="Город доставки"/>
+                <DataGridTextColumn Header="Дата отправки"/>
+                <DataGridTextColumn Header="Дата оплаты"/>
+                <DataGridTextColumn Header="Менеджер"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

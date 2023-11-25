@@ -20,9 +20,32 @@ namespace PreformWPF
     /// </summary>
     public partial class Page2 : Page
     {
+
+
         public Page2()
         {
-            InitializeComponent();
+            InitializeComponent()
+        }
+
+
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgShipping_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+
+        }
+
+        private void dgShipping_AddingNewItem(object sender, AddingNewItemEventArgs e)
+        {
+
+        }
+
+        private void dgShipping_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+
         }
     }
 }

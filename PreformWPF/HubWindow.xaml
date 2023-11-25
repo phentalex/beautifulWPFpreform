@@ -10,59 +10,73 @@
     <Grid>
         <Border Height="1080" VerticalAlignment="Top" Background="#100E17">
         </Border>
+        
         <StackPanel Orientation="Horizontal" Cursor="">
-            <StackPanel Orientation="Horizontal" Height="100" Width="1920" VerticalAlignment="Top">
-                <StackPanel Height="100" Width="280" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0">
+            
+            <StackPanel Orientation="Horizontal" Height="120" Width="1920" VerticalAlignment="Top">
+                
+                <StackPanel Height="120" Width="280" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0">
                     <Button x:Name="Page1" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Opacity="0.9" 
                             VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Background="#713ABE" Foreground="#E5CFF7" 
-                            Margin="10,0,2,0" Click="Page1_Click" Content="Личный кабинет" FontSize="20"/>
+                            Margin="10" Click="Page1_Click" Content="Личный кабинет" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Height="100" Width="280" VerticalAlignment="Top">
+                
+                <StackPanel Height="120" Width="280" VerticalAlignment="Top">
                     <Button x:Name="Page2" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Opacity="0.9" 
                             VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Background="#713ABE" Foreground="#E5CFF7" 
-                            Margin="10,0,2,0" Click="Page2_Click" Content="Отгрузки" FontSize="20"/>
+                            Margin="10" Click="Page2_Click" Content="Отгрузки" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Height="100" Width="280" VerticalAlignment="Top">
+                
+                <StackPanel Height="120" Width="280" VerticalAlignment="Top">
                     <Button x:Name="Page3" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Opacity="0.9" 
                             VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Background="#713ABE" Foreground="#E5CFF7" 
-                            Margin="10,0,2,0" Click="Page3_Click"  Content="Товары" FontSize="20"/>
+                            Margin="10" Click="Page3_Click"  Content="Товары" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Height="100" Width="280" VerticalAlignment="Top">
+                
+                <StackPanel Height="120" Width="280" VerticalAlignment="Top">
                     <Button x:Name="Page4" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Opacity="0.9" 
                             VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Background="#713ABE" Foreground="#E5CFF7" 
-                            Margin="10,0,2,0" Click="Page4_Click" Content="Контрагенты" FontSize="20"/>
+                            Margin="10" Click="Page4_Click" Content="Контрагенты" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Height="100" Width="280" VerticalAlignment="Top">
+                
+                <StackPanel Height="120" Width="280" VerticalAlignment="Top">
                     <Button x:Name="Page5" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Opacity="0.9" 
                             VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Background="#713ABE" Foreground="#E5CFF7" 
-                            Margin="10,0,2,0" Click="Page5_Click" Content="Бухгалтерия" FontSize="20"/>
+                            Margin="10" Click="Page5_Click" Content="Бухгалтерия" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Height="100" Width="280" VerticalAlignment="Top">
+                
+                <StackPanel Height="120" Width="280" VerticalAlignment="Top">
                     <Button x:Name="Page6" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Opacity ="0.9" 
                             VerticalAlignment="Top" HorizontalAlignment="Left" Height="100" Width="260" Background="#713ABE" Foreground="#E5CFF7" 
-                            Margin="10,0,2,0" Click="Page6_Click" Content="Персонал" FontSize="20"/>
+                            Margin="10" Click="Page6_Click" Content="Персонал" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="12,0,10,0">
+                
+                <StackPanel Width="76" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="7,30,0,0">
                     <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Hide"  x:Name="btnHide" 
-                            Click="btnHide_Click">
-                        <materialDesign:PackIcon Kind="MinusThick" Foreground="White" Width="30" Height="30"/>
+                            Click="btnHide_Click" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="MinusThick" Foreground="White" Width="30" Height="30" Cursor="Hand"/>
                     </Button>
                 </StackPanel>
-                <StackPanel Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,0,10,0">
+                
+                <StackPanel Height="60" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,30,10,0">
                     <TextBlock x:Name="Move" Style="{StaticResource MaterialDesignBody1TextBlock}" Background="{x:Null}" MouseDown="Move_MouseDown">
-        <materialDesign:PackIcon Kind="ArrowAll" Foreground="White" Width="50" Height="50"/>
+                     <materialDesign:PackIcon Kind="ArrowAll" Foreground="White" Width="50" Height="50"/>
                     </TextBlock>
                 </StackPanel>
-                <StackPanel Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,0,20,0">
+                
+                <StackPanel Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,30,0,0" >
                     <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Close" x:Name="btnExit" 
-                            Click="btnExit_Click">
-                        <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+                            Click="btnExit_Click" Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
                     </Button>
                 </StackPanel>
+                
             </StackPanel>
         </StackPanel>
-        <StackPanel Height="980" Width="1920" VerticalAlignment="Bottom">
+        
+        <StackPanel Height="960" Width="1920" VerticalAlignment="Bottom">
             <Frame x:Name="Main" Height="980" NavigationUIVisibility="Hidden"/>
         </StackPanel>
+        
     </Grid>
 </Window>
