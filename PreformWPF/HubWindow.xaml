@@ -75,7 +75,7 @@
         </StackPanel>
         
         <StackPanel Height="960" Width="1920" VerticalAlignment="Bottom">
-            <Frame x:Name="Main" Height="980" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="Main" Height="960" NavigationUIVisibility="Hidden"/>
         </StackPanel>
         
     </Grid>

@@ -44,6 +44,7 @@ namespace PreformWPF
                 HubWindow Hub = new HubWindow();
                 this.Close();
                 Hub.Show();
+                con.Close();
             }
             else
             {
