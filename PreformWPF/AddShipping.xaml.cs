@@ -62,9 +62,20 @@ namespace PreformWPF
             var manager = txtManager.Text;
 
 
-            cmd.Parameters.AddWithValue("@st", status);
-            cmd.Parameters.AddWithValue("@ka", ka);
-            cmd.Parameters.AddWithValue("@city", city);
+            NpgsqlParameter paramStatus = new NpgsqlParameter("@st", NpgsqlTypes.NpgsqlDbType.Varchar);
+            paramStatus.Value = status;
+            cmd.Parameters.Add(paramStatus);
+            NpgsqlParameter paramKa = new NpgsqlParameter("@ka", NpgsqlTypes.NpgsqlDbType.Varchar);
+            paramKa.Value = ka;
+            cmd.Parameters.Add(paramKa); 
+            NpgsqlParameter paramCity = new NpgsqlParameter("@city", NpgsqlTypes.NpgsqlDbType.Varchar);
+            paramCity.Value = city;
+            cmd.Parameters.Add(paramCity);
+            NpgsqlParameter paramManager = new NpgsqlParameter("@mn", NpgsqlTypes.NpgsqlDbType.Varchar);
+            paramManager.Value = manager;
+            cmd.Parameters.Add(paramManager);
+            //cmd.Parameters.AddWithValue("@ka", ka);
+            //cmd.Parameters.AddWithValue("@city", city);
 
             //DateTime date1 = DateTime.Parse(DatePickerShip.Text);
             //var dateShip = date1.Date;
@@ -72,7 +83,7 @@ namespace PreformWPF
            // DateTime date2 = DateTime.Parse(txtDatePay.Text);
            //var datePay = date2.Date;
             //cmd.Parameters.AddWithValue("@dtPay", datePay);
-            cmd.Parameters.AddWithValue("@mn", manager);
+            //cmd.Parameters.AddWithValue("@mn", manager);
             cmd.ExecuteNonQuery();
             
 

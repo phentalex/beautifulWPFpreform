@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Npgsql;
+using MySql.Data.MySqlClient;
 using System.Configuration;
 
 namespace PreformWPF
@@ -22,9 +22,9 @@ namespace PreformWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        NpgsqlConnection con = new NpgsqlConnection();
-        NpgsqlCommand com = new NpgsqlCommand();
-        NpgsqlDataReader dr;
+        MySqlConnection con = new MySqlConnection();
+        MySqlCommand com = new MySqlCommand();
+        MySqlDataReader dr;
         public MainWindow()
         {
             InitializeComponent();

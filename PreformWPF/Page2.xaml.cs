@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Npgsql;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Controls.Primitives;
 
@@ -48,18 +48,24 @@ namespace PreformWPF
 
         }
 
-        NpgsqlConnection con = new NpgsqlConnection();
+        MySqlConnection con = new MySqlConnection();
 
         private void LoadTable_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 con.Open();
-                string querystring = "select id_shipping, status, ka_name, ka_city, shipping_date, paying_date, manager from shippings";
-                NpgsqlCommand cmd = new NpgsqlCommand(querystring, con);
+                string querystring = "select id_shipping 'ID отгрузки'," +
+                    " status 'Статус'," +
+                    " ka_name 'Контрагент'," +
+                    " ka_city 'Город'," +
+                    " date_format(date_ship, '%d/%m/%Y') 'Дата отгрузки'," +
+                    " date_format(date_add(date_ship, interval 30 day), '%d/%m/%Y') 'Дата оплаты'," +
+                    " manager 'Менеджер' from preform.shippings";
+                MySqlCommand cmd = new MySqlCommand(querystring, con);
                 cmd.ExecuteNonQuery();
 
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable("shippings");
                 adapter.Fill(dt);
                 dgShipping.ItemsSource = dt.DefaultView;
