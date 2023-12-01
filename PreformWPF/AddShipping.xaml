@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PreformWPF"
         mc:Ignorable="d"
-        Title="AddShipping" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="AddShipping" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
     
     <Grid MouseDown="Grid_MouseDown">
         
@@ -57,6 +57,9 @@
             
             <TextBox x:Name="txtStatus" materialDesign:HintAssist.Hint="Статус" Width="300" VerticalAlignment="Top" Margin="20,18,20,20"
             Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
+
+            <ComboBox x:Name="listStatus" materialDesign:HintAssist.Hint="Статус" Width="300" VerticalAlignment="Top" Margin="20"
+                      Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
 
             <TextBox x:Name="txtKa" materialDesign:HintAssist.Hint="Контрагент" Width="300" VerticalAlignment="Top" Margin="20"
             Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>

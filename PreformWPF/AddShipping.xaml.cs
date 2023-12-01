@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Npgsql;
+using MySql.Data.MySqlClient;
 
 namespace PreformWPF
 {
@@ -45,14 +45,14 @@ namespace PreformWPF
             this.WindowState = WindowState.Minimized;
         }
 
-        NpgsqlConnection con = new NpgsqlConnection();
+        MySqlConnection con = new MySqlConnection();
 
         public void InsertAuto()
         {
             string querystring = "insert into shippings(status, ka_name, ka_city,  manager)" +
                 "values (@st, @ka, @city,  @mn)";
 
-            NpgsqlCommand cmd = new NpgsqlCommand(querystring, con);
+            MySqlCommand cmd = new MySqlCommand(querystring, con);
 
             var status = txtStatus.Text;
             var ka = txtKa.Text;
@@ -62,18 +62,18 @@ namespace PreformWPF
             var manager = txtManager.Text;
 
 
-            NpgsqlParameter paramStatus = new NpgsqlParameter("@st", NpgsqlTypes.NpgsqlDbType.Varchar);
-            paramStatus.Value = status;
-            cmd.Parameters.Add(paramStatus);
-            NpgsqlParameter paramKa = new NpgsqlParameter("@ka", NpgsqlTypes.NpgsqlDbType.Varchar);
-            paramKa.Value = ka;
-            cmd.Parameters.Add(paramKa); 
-            NpgsqlParameter paramCity = new NpgsqlParameter("@city", NpgsqlTypes.NpgsqlDbType.Varchar);
-            paramCity.Value = city;
-            cmd.Parameters.Add(paramCity);
-            NpgsqlParameter paramManager = new NpgsqlParameter("@mn", NpgsqlTypes.NpgsqlDbType.Varchar);
-            paramManager.Value = manager;
-            cmd.Parameters.Add(paramManager);
+            //NpgsqlParameter paramStatus = new NpgsqlParameter("@st", NpgsqlTypes.NpgsqlDbType.Varchar);
+            //paramStatus.Value = status;
+            //cmd.Parameters.Add(paramStatus);
+            //NpgsqlParameter paramKa = new NpgsqlParameter("@ka", NpgsqlTypes.NpgsqlDbType.Varchar);
+            //paramKa.Value = ka;
+            //cmd.Parameters.Add(paramKa); 
+            //NpgsqlParameter paramCity = new NpgsqlParameter("@city", NpgsqlTypes.NpgsqlDbType.Varchar);
+            //paramCity.Value = city;
+            //cmd.Parameters.Add(paramCity);
+            //NpgsqlParameter paramManager = new NpgsqlParameter("@mn", NpgsqlTypes.NpgsqlDbType.Varchar);
+            //paramManager.Value = manager;
+            //cmd.Parameters.Add(paramManager);
             //cmd.Parameters.AddWithValue("@ka", ka);
             //cmd.Parameters.AddWithValue("@city", city);
 
@@ -114,5 +114,29 @@ namespace PreformWPF
             }
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            try
+            {
+                con.Open();
+                string querystring = "select status_name from preform.status_shipping";
+                MySqlCommand cmd = new MySqlCommand(querystring, con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    listStatus.Items.Add(dr.GetString("status_name"));
+                }
+                con.Close();
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
