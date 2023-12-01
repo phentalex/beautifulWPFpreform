@@ -54,12 +54,12 @@ namespace PreformWPF
 
             MySqlCommand cmd = new MySqlCommand(querystring, con);
 
-            var status = txtStatus.Text;
-            var ka = txtKa.Text;
-            var city = txtCity.Text;
-            var dateShip = txtDateShip.Text;
-            var datePay = txtDatePay.Text;
-            var manager = txtManager.Text;
+            //var status = txtStatus.Text;
+            //var ka = txtKa.Text;
+            //var city = txtCity.Text;
+            //var dateShip = txtDateShip.Text;
+            //var datePay = txtDatePay.Text;
+            //var manager = txtManager.Text;
 
 
             //NpgsqlParameter paramStatus = new NpgsqlParameter("@st", NpgsqlTypes.NpgsqlDbType.Varchar);
@@ -123,13 +123,44 @@ namespace PreformWPF
             try
             {
                 con.Open();
-                string querystring = "select status_name from preform.status_shipping";
-                MySqlCommand cmd = new MySqlCommand(querystring, con);
-                MySqlDataReader dr = cmd.ExecuteReader();
 
-                while (dr.Read())
+                string querystringStatus = "select status_name from preform.status_shipping";
+                string querystringKa = "select ka_name from preform.ka";
+                string querystringCity = "select ka_city from preform.ka";
+                string querystringManager = "select manager_firstname from preform.managers";
+
+                MySqlCommand cmdStatus = new MySqlCommand(querystringStatus, con);
+                MySqlDataReader drStatus = cmdStatus.ExecuteReader();
+                while (drStatus.Read())
                 {
-                    listStatus.Items.Add(dr.GetString("status_name"));
+                    listStatus.Items.Add(drStatus.GetString("status_name"));
+                }
+                con.Close();
+
+                con.Open();
+                MySqlCommand cmdKa = new MySqlCommand(querystringKa, con);
+                MySqlDataReader drKa = cmdKa.ExecuteReader();
+                while (drKa.Read())
+                {
+                    listKa.Items.Add(drKa.GetString("ka_name"));
+                }
+                con.Close();
+
+                con.Open();
+                MySqlCommand cmdCity = new MySqlCommand(querystringCity, con);
+                MySqlDataReader drCity = cmdCity.ExecuteReader();
+                while (drCity.Read())
+                {
+                    listCity.Items.Add(drCity.GetString("ka_city"));
+                }
+                con.Close();
+
+                con.Open();
+                MySqlCommand cmdManager = new MySqlCommand(querystringManager, con);
+                MySqlDataReader drManager = cmdManager.ExecuteReader();
+                while (drManager.Read())
+                {
+                    listManager.Items.Add(drManager.GetString("manager_firstname"));
                 }
                 con.Close();
             } 

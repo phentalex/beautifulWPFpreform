@@ -54,30 +54,25 @@
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="400" Height="400">
-            
-            <TextBox x:Name="txtStatus" materialDesign:HintAssist.Hint="Статус" Width="300" VerticalAlignment="Top" Margin="20,18,20,20"
-            Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
 
-            <ComboBox x:Name="listStatus" materialDesign:HintAssist.Hint="Статус" Width="300" VerticalAlignment="Top" Margin="20"
+            <ComboBox x:Name="listStatus" materialDesign:HintAssist.Hint="Выбрать статус" Width="300" VerticalAlignment="Top" Margin="20"
                       Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
 
-            <TextBox x:Name="txtKa" materialDesign:HintAssist.Hint="Контрагент" Width="300" VerticalAlignment="Top" Margin="20"
-            Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
+            <ComboBox x:Name="listKa" materialDesign:HintAssist.Hint="Выбрать контрагента" Width="300" VerticalAlignment="Top" Margin="20"
+          Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
 
-            <TextBox x:Name="txtCity" materialDesign:HintAssist.Hint="Город" Width="300" VerticalAlignment="Top" Margin="20,18,20,20"
-            Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
+            <ComboBox x:Name="listCity" materialDesign:HintAssist.Hint="Выбрать город" Width="300" VerticalAlignment="Top" Margin="20"
+          Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
 
-            <TextBox x:Name="txtDateShip" materialDesign:HintAssist.Hint="Дата отправки" Width="300" VerticalAlignment="Top" Margin="20"
-            Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
 
-            <DatePicker x:Name="DatePickerShip" Width="300" VerticalAlignment="Top" Margin="20" Foreground="#610C9F" 
-                        Background="#F1EAFF"/>
+            <DatePicker x:Name="DatePickerShip" materialDesign:HintAssist.Hint="Выберите дату отгрузки" Width="300" VerticalAlignment="Top" Margin="20" Foreground="#610C9F" 
+                        Background="#F1EAFF" Height="27.6" FontSize="14"/>
 
-            <TextBox x:Name="txtDatePay" materialDesign:HintAssist.Hint="Дата оплаты" Width="300" VerticalAlignment="Top" Margin="20,18,20,20"
-            Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
+            <TextBlock x:Name="txtDatePay" Text="Здесь будет дата оплаты" Width="300" VerticalAlignment="Top" Margin="20"
+                       Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
 
-            <TextBox x:Name="txtManager" materialDesign:HintAssist.Hint="Менеджер" Width="300" VerticalAlignment="Top" Margin="20"
-            Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F" FontSize="14"/>
+            <ComboBox x:Name="listManager" materialDesign:HintAssist.Hint="Выбрать менеджера" Width="300" VerticalAlignment="Top" Margin="20"
+          Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
 
         </StackPanel>
 
