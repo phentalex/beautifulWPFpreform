@@ -62,7 +62,6 @@ namespace PreformWPF
             DateTime datepay = DatePickerShip.SelectedDate.Value;
             datepay = datepay.AddDays(30);
             cmd.Parameters.AddWithValue("@dp", datepay);
-            cmd.ExecuteNonQuery();
             
 
             int a = cmd.ExecuteNonQuery();

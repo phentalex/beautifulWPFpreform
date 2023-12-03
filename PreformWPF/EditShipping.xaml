@@ -6,9 +6,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PreformWPF"
         mc:Ignorable="d"
-        Title="EditShipping" Height="800" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="EditShipping" Height="800" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
 
-    <Grid MouseDown="Grid_MouseDown">
+    <Grid MouseDown="Grid_MouseDown" Loaded="Grid_Loaded">
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Background="#100E17" Width="800" Height="50">
 
@@ -37,7 +37,7 @@
 
         <StackPanel VerticalAlignment="Top" Margin="0,50,0,0" Height="350" Width="800">
 
-            <DataGrid />
+            <DataGrid x:Name="dgEditShipping" Width="800" Height="350" AutoGenerateColumns="True" Foreground="#610C9F" CanUserAddRows="False"/>
 
         </StackPanel> 
         
@@ -61,21 +61,30 @@
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="400" Height="400">
 
-            <TextBox x:Name="txtEditStatus" Text="" Width="300" VerticalAlignment="Top" Margin="20"
+            <ComboBox x:Name="listEditStatus" Text="{Binding SelectedItem.Статус, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
 
-            <TextBox x:Name="txtEditKa" Text="" Width="300" VerticalAlignment="Top" Margin="20"
+            <ComboBox x:Name="listEditKa" Text="{Binding SelectedItem.Контрагент, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectionChanged="listEditKa_SelectionChanged"/>
+
+            <TextBox x:Name="txtEditCity" Text="{Binding SelectedItem.Город, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
+            <DatePicker x:Name="DatePickerEditShip" Text="{Binding SelectedItem.ДатаОтгрузки, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectedDateChanged="DatePickerEditShip_SelectedDateChanged"/>
+            <DatePicker x:Name="DatePickerEditPay" Text="{Binding SelectedItem.ДатаОплаты, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
+            <ComboBox x:Name="listEditManager" Text="{Binding SelectedItem.Менеджер, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
+
+            <TextBox x:Name="txtEditID" Text="{Binding SelectedItem.ID, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
-
-            <TextBox x:Name="txtDatePay" materialDesign:HintAssist.Hint="Здесь будет дата оплаты" Width="300" VerticalAlignment="Top" Margin="20"
-           Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
-
+            
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="400" Width="220">
 
-            <Button x:Name="btn_EditShip" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Изменить" Width="110" Height="50" Margin="0,165,0,0" 
-            Background="#F1EAFF" Foreground="#610C9F"/>
+            <Button x:Name="btn_EditShip" VerticalAlignment="Center" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" HorizontalAlignment="Center" Content="Изменить" Width="110" Height="50" Margin="0,165,0,0" 
+            Background="#F1EAFF" Foreground="#610C9F" Click="btn_EditShip_Click"/>
 
         </StackPanel>
 
