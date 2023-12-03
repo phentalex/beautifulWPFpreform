@@ -96,7 +96,8 @@ namespace PreformWPF
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
-
+            EditShipping EddSh = new EditShipping();
+            EddSh.Show();
         }
 
         private void btn_Delete_Click(object sender, RoutedEventArgs e)

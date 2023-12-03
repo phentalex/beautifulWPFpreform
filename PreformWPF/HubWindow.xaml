@@ -76,6 +76,7 @@
         
         <StackPanel Height="960" Width="1920" VerticalAlignment="Bottom">
             <Frame x:Name="Main" Height="960" NavigationUIVisibility="Hidden"/>
+            <DataGrid Height="100" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         </StackPanel>
         
     </Grid>
