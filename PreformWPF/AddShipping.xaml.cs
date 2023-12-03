@@ -49,41 +49,19 @@ namespace PreformWPF
 
         public void InsertAuto()
         {
-            string querystring = "insert into shippings(status, ka_name, ka_city,  manager)" +
-                "values (@st, @ka, @city,  @mn)";
+            string querystring = "insert into shippings(status, ka_name, ka_city, date_ship, date_pay, manager)" +
+                "values (@st, @ka, @city, @ds, @dp, @mn)";
 
             MySqlCommand cmd = new MySqlCommand(querystring, con);
+            cmd.Parameters.AddWithValue("@st", listStatus.Text);
+            cmd.Parameters.AddWithValue("@ka", listKa.Text);
+            cmd.Parameters.AddWithValue("@mn", listManager.Text);
+            cmd.Parameters.AddWithValue("@city", txtCity.Text);
+            cmd.Parameters.AddWithValue("@ds", DatePickerShip.SelectedDate.Value);
 
-            //var status = txtStatus.Text;
-            //var ka = txtKa.Text;
-            //var city = txtCity.Text;
-            //var dateShip = txtDateShip.Text;
-            //var datePay = txtDatePay.Text;
-            //var manager = txtManager.Text;
-
-
-            //NpgsqlParameter paramStatus = new NpgsqlParameter("@st", NpgsqlTypes.NpgsqlDbType.Varchar);
-            //paramStatus.Value = status;
-            //cmd.Parameters.Add(paramStatus);
-            //NpgsqlParameter paramKa = new NpgsqlParameter("@ka", NpgsqlTypes.NpgsqlDbType.Varchar);
-            //paramKa.Value = ka;
-            //cmd.Parameters.Add(paramKa); 
-            //NpgsqlParameter paramCity = new NpgsqlParameter("@city", NpgsqlTypes.NpgsqlDbType.Varchar);
-            //paramCity.Value = city;
-            //cmd.Parameters.Add(paramCity);
-            //NpgsqlParameter paramManager = new NpgsqlParameter("@mn", NpgsqlTypes.NpgsqlDbType.Varchar);
-            //paramManager.Value = manager;
-            //cmd.Parameters.Add(paramManager);
-            //cmd.Parameters.AddWithValue("@ka", ka);
-            //cmd.Parameters.AddWithValue("@city", city);
-
-            //DateTime date1 = DateTime.Parse(DatePickerShip.Text);
-            //var dateShip = date1.Date;
-           // cmd.Parameters.AddWithValue("@dtShip", DatePickerShip.SelectedDate.Value.Date.ToShortDateString());
-           // DateTime date2 = DateTime.Parse(txtDatePay.Text);
-           //var datePay = date2.Date;
-            //cmd.Parameters.AddWithValue("@dtPay", datePay);
-            //cmd.Parameters.AddWithValue("@mn", manager);
+            DateTime datepay = DatePickerShip.SelectedDate.Value;
+            datepay = datepay.AddDays(30);
+            cmd.Parameters.AddWithValue("@dp", datepay);
             cmd.ExecuteNonQuery();
             
 
@@ -126,7 +104,6 @@ namespace PreformWPF
 
                 string querystringStatus = "select status_name from preform.status_shipping";
                 string querystringKa = "select ka_name from preform.ka";
-                string querystringCity = "select ka_city from preform.ka";
                 string querystringManager = "select manager_firstname from preform.managers";
 
                 MySqlCommand cmdStatus = new MySqlCommand(querystringStatus, con);
@@ -147,15 +124,6 @@ namespace PreformWPF
                 con.Close();
 
                 con.Open();
-                MySqlCommand cmdCity = new MySqlCommand(querystringCity, con);
-                MySqlDataReader drCity = cmdCity.ExecuteReader();
-                while (drCity.Read())
-                {
-                    listCity.Items.Add(drCity.GetString("ka_city"));
-                }
-                con.Close();
-
-                con.Open();
                 MySqlCommand cmdManager = new MySqlCommand(querystringManager, con);
                 MySqlDataReader drManager = cmdManager.ExecuteReader();
                 while (drManager.Read())
@@ -168,6 +136,30 @@ namespace PreformWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void listKa_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+            string selectstringCity = $"select ka_city from preform.ka where ka_name= '{listKa.SelectedItem}'";
+            MySqlCommand cmdSELcity = new MySqlCommand(selectstringCity, con);
+            MySqlDataReader drSELcity = cmdSELcity.ExecuteReader();
+            while (drSELcity.Read())
+            {
+                txtCity.Text = drSELcity.GetValue(0).ToString();
+            }
+            con.Close();
+        }
+
+        private void DatePickerShip_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime datepay = DatePickerShip.SelectedDate.Value;
+            datepay = datepay.AddDays(30);
+            txtDatePay.Text = datepay.ToString("dd//MM/yyyy");
         }
     }
 }

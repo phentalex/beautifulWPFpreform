@@ -59,17 +59,17 @@
                       Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
 
             <ComboBox x:Name="listKa" materialDesign:HintAssist.Hint="Выбрать контрагента" Width="300" VerticalAlignment="Top" Margin="20"
-          Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
+          Foreground="#610C9F" Background="#F1EAFF" FontSize="14" SelectionChanged="listKa_SelectionChanged"/>
 
-            <ComboBox x:Name="listCity" materialDesign:HintAssist.Hint="Выбрать город" Width="300" VerticalAlignment="Top" Margin="20"
-          Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
+            <TextBox x:Name="txtCity" materialDesign:HintAssist.Hint="Здесь будет город контрагента" Width="300" VerticalAlignment="Top" Margin="20"
+           Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
 
 
             <DatePicker x:Name="DatePickerShip" materialDesign:HintAssist.Hint="Выберите дату отгрузки" Width="300" VerticalAlignment="Top" Margin="20" Foreground="#610C9F" 
-                        Background="#F1EAFF" Height="27.6" FontSize="14"/>
+                        Background="#F1EAFF" Height="27.6" FontSize="14" SelectedDateChanged="DatePickerShip_SelectedDateChanged"/>
 
-            <TextBlock x:Name="txtDatePay" Text="Здесь будет дата оплаты" Width="300" VerticalAlignment="Top" Margin="20"
-                       Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
+            <TextBox x:Name="txtDatePay" materialDesign:HintAssist.Hint="Здесь будет дата оплаты" Width="300" VerticalAlignment="Top" Margin="20"
+           Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
 
             <ComboBox x:Name="listManager" materialDesign:HintAssist.Hint="Выбрать менеджера" Width="300" VerticalAlignment="Top" Margin="20"
           Foreground="#610C9F" Background="#F1EAFF" FontSize="14"/>
