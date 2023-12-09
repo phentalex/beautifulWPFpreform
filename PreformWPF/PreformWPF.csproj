@@ -182,61 +182,138 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddShipping.xaml">
+    <Compile Include="ForAdmin\Managers\AddManager.xaml.cs">
+      <DependentUpon>AddManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Managers\DeleteManager.xaml.cs">
+      <DependentUpon>DeleteManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Managers\EditManager.xaml.cs">
+      <DependentUpon>EditManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Managers\Page6.xaml.cs">
+      <DependentUpon>Page6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForUser\Page2ForUser.xaml.cs">
+      <DependentUpon>Page2ForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForUser\Page3ForUser.xaml.cs">
+      <DependentUpon>Page3ForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForUser\UserHubWindow.xaml.cs">
+      <DependentUpon>UserHubWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ForAdmin\Ka\DeleteKa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteShipping.xaml">
+    <Page Include="ForAdmin\Managers\AddManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditShipping.xaml">
+    <Page Include="ForAdmin\Managers\DeleteManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HubWindow.xaml">
+    <Page Include="ForAdmin\Managers\EditManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="ForAdmin\Managers\Page6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForUser\Page3ForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Ka\AddKa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Ka\EditKa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForUser\Page2ForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Shippings\AddShipping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Shippings\DeleteShipping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Shippings\EditShipping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\HubWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForUser\UserLoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddShipping.xaml.cs">
+    <Compile Include="ForAdmin\Ka\DeleteKa.xaml.cs">
+      <DependentUpon>DeleteKa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Ka\AddKa.xaml.cs">
+      <DependentUpon>AddKa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Ka\EditKa.xaml.cs">
+      <DependentUpon>EditKa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Shippings\AddShipping.xaml.cs">
       <DependentUpon>AddShipping.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DeleteShipping.xaml.cs">
+    <Compile Include="ForAdmin\Shippings\DeleteShipping.xaml.cs">
       <DependentUpon>DeleteShipping.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditShipping.xaml.cs">
+    <Compile Include="ForAdmin\Shippings\EditShipping.xaml.cs">
       <DependentUpon>EditShipping.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HubWindow.xaml.cs">
+    <Compile Include="ForAdmin\HubWindow.xaml.cs">
       <DependentUpon>HubWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="ForUser\UserLoginWindow.xaml.cs">
+      <DependentUpon>UserLoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Page1.xaml">
+    <Page Include="ForAdmin\Shippings\Page2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page2.xaml">
+    <Page Include="ForAdmin\Ka\Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForUser\UserHubWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForUser\Page6ForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page2.xaml.cs">
+    <Compile Include="ForAdmin\Shippings\Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Ka\Page3.xaml.cs">
+      <DependentUpon>Page3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForUser\Page6ForUser.xaml.cs">
+      <DependentUpon>Page6ForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -268,7 +345,10 @@
     <Resource Include="Images\preform.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
+    <Resource Include="ForUser\preform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ForAdmin\preform.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

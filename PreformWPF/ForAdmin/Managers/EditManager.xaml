@@ -1,0 +1,91 @@
+﻿<Window x:Class="PreformWPF.EditManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:PreformWPF"
+        mc:Ignorable="d"
+        Title="EditManager" Height="670" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
+
+    <Grid MouseDown="Grid_MouseDown">
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Background="#100E17" Width="800" Height="50">
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Редактирование сотрудника" FontSize="30" Height="50" Foreground="#E5CFF7"/>
+
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="180" Height="50" Margin="0,-40,0,0">
+
+                <Button Background="{x:Null}" ToolTip="Hide"  x:Name="btnHide" 
+                Click="btnHide_Click"  HorizontalAlignment="Center" Margin="0,0,30,0">
+
+                    <materialDesign:PackIcon Kind="MinusThick" Foreground="White" Width="20" Height="20" Cursor="Hand"/>
+
+                </Button>
+
+
+                <Button Background="{x:Null}" ToolTip="Close"  x:Name="btnClose" 
+                 Click="btnClose_Click"  HorizontalAlignment="Right" Margin="0,-33,10,0">
+
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="20" Height="20" Cursor="Hand"/>
+
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Top" Margin="0,50,0,0" Height="350" Width="800">
+
+            <DataGrid x:Name="dgEditManager" Width="800" Height="350" AutoGenerateColumns="True" Foreground="#610C9F" CanUserAddRows="False"/>
+
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" Width="800" Height="270" Background="#9D76C1" Opacity="0.8"/>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="180" Height="270">
+
+            <TextBlock Text="Имя" Foreground="#E5CFF7" FontSize="20" HorizontalAlignment="Left" Margin="20"/>
+
+            <TextBlock Text="Фамилия" Foreground="#E5CFF7" FontSize="20" HorizontalAlignment="Left" Margin="20"/>
+
+            <TextBlock Text="Телефон" Foreground="#E5CFF7" FontSize="20" HorizontalAlignment="Left" Margin="20"/>
+
+            <TextBlock Text="Почта" Foreground="#E5CFF7" FontSize="20" HorizontalAlignment="Left" Margin="20"/>
+
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="400" Height="270">
+
+            <TextBox x:Name="txtName" Text="{Binding SelectedItem.Имя, ElementName=dgEditManager}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#713ABE" Height="27.6" FontSize="14"
+                     materialDesign:HintAssist.Hint="Введите имя сотрудника"/>
+
+            <TextBox x:Name="txtSurname" Text="{Binding SelectedItem.Фамилия, ElementName=dgEditManager}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#713ABE" Height="27.6" FontSize="14"
+                     materialDesign:HintAssist.Hint="Введите фамилию сотрудника"/>
+
+            <TextBox x:Name="txtPhone" Text="{Binding SelectedItem.Телефон, ElementName=dgEditManager}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#713ABE" Height="27.6" FontSize="14"
+                     materialDesign:HintAssist.Hint="Введите телефон сотрудника"/>
+            <TextBox x:Name="txtEmail" Text="{Binding SelectedItem.Почта, ElementName=dgEditManager}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#713ABE" Height="27.6" FontSize="14" 
+                     materialDesign:HintAssist.Hint="Введите почту сотрудника"/>
+
+            <TextBlock x:Name="txtManagerID" Text="{Binding SelectedItem.ID, ElementName=dgEditManager}"/>
+
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="270" Width="220">
+
+            <Button x:Name="btn_EditManager" VerticalAlignment="Center" Style="{StaticResource MaterialDesignRaisedButton}" 
+            materialDesign:ButtonAssist.CornerRadius="10" HorizontalAlignment="Center" Content="Изменить" Width="110" Height="50" Margin="0,110,0,0" 
+            Background="#F1EAFF" Foreground="#610C9F" Click="btn_EditManager_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+
+
+
+</Window>

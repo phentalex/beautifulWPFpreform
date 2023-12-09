@@ -41,34 +41,19 @@ namespace PreformWPF
             DragMove();
         }
 
-        private void Page1_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Page1();
-        }
-
         private void Page2_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Page2();
         }
 
-        private void Page3_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Page4_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Page5_Click(object sender, RoutedEventArgs e)
-        {
-
+            Main.Content = new Page3();
         }
 
         private void Page6_Click(object sender, RoutedEventArgs e)
         {
-
+            Main.Content = new Page6();
         }
     }
 }

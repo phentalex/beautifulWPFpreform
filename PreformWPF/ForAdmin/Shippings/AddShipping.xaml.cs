@@ -71,7 +71,31 @@ namespace PreformWPF
             }
         }
 
-        private void AddShip_Click_1(object sender, RoutedEventArgs e)
+        private void listKa_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+            string selectstringCity = $"select ka_city from preform.ka where ka_name= '{listKa.SelectedItem}'";
+            MySqlCommand cmdSELcity = new MySqlCommand(selectstringCity, con);
+            MySqlDataReader drSELcity = cmdSELcity.ExecuteReader();
+            while (drSELcity.Read())
+            {
+                txtCity.Text = drSELcity.GetValue(0).ToString();
+            }
+            con.Close();
+        }
+
+        private void DatePickerShip_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime datepay = DatePickerShip.SelectedDate.Value;
+            datepay = datepay.AddDays(30);
+            txtDatePay.Text = datepay.ToString("dd//MM/yyyy");
+        }
+
+        private void btn_AddShip_Click(object sender, RoutedEventArgs e)
         {
             if (con.State == System.Data.ConnectionState.Open)
             {
@@ -130,35 +154,11 @@ namespace PreformWPF
                     listManager.Items.Add(drManager.GetString("manager_firstname"));
                 }
                 con.Close();
-            } 
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void listKa_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (con.State == System.Data.ConnectionState.Open)
-            {
-                con.Close();
-            }
-            con.Open();
-            string selectstringCity = $"select ka_city from preform.ka where ka_name= '{listKa.SelectedItem}'";
-            MySqlCommand cmdSELcity = new MySqlCommand(selectstringCity, con);
-            MySqlDataReader drSELcity = cmdSELcity.ExecuteReader();
-            while (drSELcity.Read())
-            {
-                txtCity.Text = drSELcity.GetValue(0).ToString();
-            }
-            con.Close();
-        }
-
-        private void DatePickerShip_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DateTime datepay = DatePickerShip.SelectedDate.Value;
-            datepay = datepay.AddDays(30);
-            txtDatePay.Text = datepay.ToString("dd//MM/yyyy");
         }
     }
 }
