@@ -78,5 +78,16 @@ namespace PreformWPF
             DataView dvManager = dt.DefaultView;
             dvManager.RowFilter = "Менеджер like '%" + TextToFilterManager.Text + "%'";
         }
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
+        {
+            AddShippingForUser addsh = new AddShippingForUser();
+            addsh.Show();
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditShippingForUser EddSh = new EditShippingForUser();
+            EddSh.Show();
+        }
     }
 }

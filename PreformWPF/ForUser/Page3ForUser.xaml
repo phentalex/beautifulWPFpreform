@@ -17,6 +17,8 @@
 
         </Grid.Background>
 
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
         <StackPanel Margin="20,40,10,10" Orientation="Horizontal">
 
             <StackPanel Height="75" Width="700" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
@@ -24,14 +26,19 @@
                 <TextBlock TextWrapping="Wrap" Text="Найти" Foreground="#E5CFF7" FontSize="20" Margin="0,0,0,10"/>
 
                 <TextBox x:Name="TextToFilterKa" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="#610C9F" 
-                 materialDesign:HintAssist.Hint="Контрагент" Width="300" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F"
-                         TextChanged="TextToFilterKa_TextChanged" Margin="20,0,0,0"/>
+         materialDesign:HintAssist.Hint="Контрагент" Width="300" Background="#F1EAFF" CaretBrush="#610C9F" SelectionBrush="#610C9F"
+                 TextChanged="TextToFilterKa_TextChanged" Margin="20,0,0,0"/>
 
             </StackPanel>
 
         </StackPanel>
 
-        <DataGrid x:Name="dgShipping" Height="800" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F">
+
+        <StackPanel Width="310" Height="80" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+
+        <DataGrid x:Name="dgShipping" Height="750" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F">
 
             <!--<DataGrid.Columns>
                 
@@ -54,8 +61,8 @@
 
         <StackPanel VerticalAlignment="Bottom">
 
-            <Button x:Name="LoadTable" Click="LoadTable_Click" Content="Загрузить таблицу" Width="260" Height="40" Margin="10" 
-            Background="#F1EAFF" Foreground="#610C9F" />
+            <Button x:Name="LoadTable" Click="LoadTable_Click" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Content="Загрузить таблицу" Width="260" Height="40" Margin="10" 
+            Background="#F1EAFF" Foreground="#610C9F"/>
 
         </StackPanel>
     </Grid>

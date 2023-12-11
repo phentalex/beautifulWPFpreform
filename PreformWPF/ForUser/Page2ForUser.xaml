@@ -17,7 +17,15 @@
 
         </Grid.Background>
 
-        <StackPanel Margin="20,40,10,10" Orientation="Horizontal">
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+            <Button x:Name="btn_Add" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Margin="10"  Opacity="0.6" 
+        VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="260" Background="#F1EAFF" Foreground="#610C9F"
+        Click="btn_Add_Click" Content="Добавить отгрузку" FontSize="20"/>
+
+        </StackPanel>
+
+        <StackPanel Margin="20,90,10,10" Orientation="Horizontal">
 
             <StackPanel Height="75" Width="1050" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
 
@@ -39,8 +47,21 @@ materialDesign:HintAssist.Hint="Менеджер" Width="300" Background="#F1EAF
 
         </StackPanel>
 
-        <DataGrid x:Name="dgShipping" Height="800" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F">
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Center">
 
+            <Button x:Name="btn_Edit" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Margin="10"  Opacity="0.6" 
+VerticalAlignment="Top" HorizontalAlignment="Right" Height="60" Width="260" Background="#F1EAFF" Foreground="#610C9F" 
+Click="btn_Edit_Click"  Content="Редактировать отгрузку" FontSize="20"/>
+
+        </StackPanel>
+
+        <StackPanel Width="280" Height="80" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+
+        <DataGrid x:Name="dgShipping" Height="700" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Оплата" />
+            </DataGrid.Columns>
             <!--<DataGrid.Columns>
                 
                 <DataGridTextColumn Header="ID"/>

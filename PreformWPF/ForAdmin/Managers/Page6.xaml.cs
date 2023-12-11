@@ -31,6 +31,8 @@ namespace PreformWPF
 
         MySqlConnection con = new MySqlConnection();
 
+        DataTable dt = new DataTable("managers");
+
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             EditManager EditMan = new EditManager();
@@ -63,7 +65,7 @@ namespace PreformWPF
                 cmd.ExecuteNonQuery();
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable("managers");
+                dt.Clear();
                 adapter.Fill(dt);
                 dgManager.ItemsSource = dt.DefaultView;
 
@@ -73,6 +75,18 @@ namespace PreformWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void TextToFilterName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = "Имя like '%" + TextToFilterName.Text + "%'";
+        }
+
+        private void TextToFilterSurname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = "Фамилия like '%" + TextToFilterSurname.Text + "%'";
         }
     }
 }

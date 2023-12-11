@@ -63,6 +63,7 @@ namespace PreformWPF
             }
         }
 
+
         private void TextToFilterName_TextChanged(object sender, TextChangedEventArgs e)
         {
             DataView dvManager = dt.DefaultView;

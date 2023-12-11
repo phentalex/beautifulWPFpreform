@@ -30,6 +30,8 @@ namespace PreformWPF
         }
         MySqlConnection con = new MySqlConnection();
 
+        DataTable dt = new DataTable("shippings");
+
         private void LoadTable_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -42,10 +44,10 @@ namespace PreformWPF
                 cmd.ExecuteNonQuery();
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable("shippings");
+                
                 adapter.Fill(dt);
                 dgShipping.ItemsSource = dt.DefaultView;
-
+                dt.Clear();
                 con.Close();
             }
             catch (Exception ex)
@@ -70,6 +72,12 @@ namespace PreformWPF
         {
             DeleteKa DelKa = new DeleteKa();
             DelKa.Show();
+        }
+
+        private void TextToFilterKa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = "Контрагент like '%" + TextToFilterKa.Text + "%'";
         }
     }
 }

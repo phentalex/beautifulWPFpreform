@@ -194,6 +194,12 @@
     <Compile Include="ForAdmin\Managers\Page6.xaml.cs">
       <DependentUpon>Page6.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ForUser\AddShippingForUser.xaml.cs">
+      <DependentUpon>AddShippingForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForUser\EditShippingForUser.xaml.cs">
+      <DependentUpon>EditShippingForUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ForUser\Page2ForUser.xaml.cs">
       <DependentUpon>Page2ForUser.xaml</DependentUpon>
     </Compile>
@@ -222,6 +228,14 @@
     <Page Include="ForAdmin\Managers\Page6.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForUser\AddShippingForUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ForUser\EditShippingForUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ForUser\Page3ForUser.xaml">
       <SubType>Designer</SubType>

@@ -50,6 +50,8 @@ namespace PreformWPF
 
         MySqlConnection con = new MySqlConnection();
 
+        DataTable dt = new DataTable("shippings");
+
         private void LoadTable_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -66,7 +68,7 @@ namespace PreformWPF
                 cmd.ExecuteNonQuery();
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable("shippings");
+                dt.Clear();
                 adapter.Fill(dt);
                 dgShipping.ItemsSource = dt.DefaultView;
 
@@ -96,6 +98,22 @@ namespace PreformWPF
             DelShip.Show();
         }
 
+        private void TextToFilterStatus_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = "Статус like '%" + TextToFilterStatus.Text + "%'";
+        }
 
+        private void TextToFilterKa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = "Контрагент like '%" + TextToFilterKa.Text + "%'";
+        }
+
+        private void TextToFilterManager_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = "Менеджер like '%" + TextToFilterManager.Text + "%'";
+        }
     }
 }
