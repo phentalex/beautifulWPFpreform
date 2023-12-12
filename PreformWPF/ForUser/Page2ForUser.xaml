@@ -59,9 +59,9 @@ Click="btn_Edit_Click"  Content="Редактировать отгрузку" Fo
 
         <DataGrid x:Name="dgShipping" Height="700" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Оплата" />
-            </DataGrid.Columns>
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="Оплата" Binding="{Binding ColumnOplata}"/>
+            </DataGrid.Columns>-->
             <!--<DataGrid.Columns>
                 
                 <DataGridTextColumn Header="ID"/>

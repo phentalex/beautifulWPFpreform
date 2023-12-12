@@ -63,8 +63,7 @@ Click="btn_Delete_Click" Content="Удалить отгрузку" FontSize="20"
 
         </StackPanel>
 
-        <DataGrid x:Name="dgShipping" Height="700" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F">
-            
+        <DataGrid x:Name="dgShipping" Height="700" Width="1600" Margin="0,40,0,0" AutoGenerateColumns="True" Foreground="#610C9F" IsReadOnly="True">
             <!--<DataGrid.Columns>
                 
                 <DataGridTextColumn Header="ID"/>

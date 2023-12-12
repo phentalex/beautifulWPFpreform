@@ -194,6 +194,18 @@
     <Compile Include="ForAdmin\Managers\Page6.xaml.cs">
       <DependentUpon>Page6.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ForAdmin\Users\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Users\DeleteUser.xaml.cs">
+      <DependentUpon>DeleteUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Users\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForAdmin\Users\Page7.xaml.cs">
+      <DependentUpon>Page7.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ForUser\AddShippingForUser.xaml.cs">
       <DependentUpon>AddShippingForUser.xaml</DependentUpon>
     </Compile>
@@ -226,6 +238,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ForAdmin\Managers\Page6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Users\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Users\DeleteUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Users\EditUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForAdmin\Users\Page7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

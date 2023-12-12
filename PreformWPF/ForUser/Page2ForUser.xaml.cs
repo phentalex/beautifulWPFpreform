@@ -33,6 +33,7 @@ namespace PreformWPF
 
         DataTable dt = new DataTable("shippings");
 
+
         private void LoadTable_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -44,14 +45,18 @@ namespace PreformWPF
                     " ka_city 'Город'," +
                     " date_format(date_ship, '%d/%m/%Y') 'Дата отгрузки'," +
                     " date_format(date_add(date_ship, interval 30 day), '%d/%m/%Y') 'Дата оплаты'," +
-                    " manager 'Менеджер' from preform.shippings";
+                    " manager 'Менеджер'," +
+                    " oplata 'Оплата' from preform.shippings";
                 MySqlCommand cmd = new MySqlCommand(querystring, con);
                 cmd.ExecuteNonQuery();
+
+
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 dt.Clear();
                 adapter.Fill(dt);
                 dgShipping.ItemsSource = dt.DefaultView;
+
 
                 con.Close();
             }

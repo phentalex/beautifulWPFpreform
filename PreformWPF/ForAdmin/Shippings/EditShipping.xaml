@@ -62,7 +62,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="400" Height="400">
 
             <ComboBox x:Name="listEditStatus" Text="{Binding SelectedItem.Статус, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
-Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectionChanged="listEditStatus_SelectionChanged"/>
 
             <ComboBox x:Name="listEditKa" Text="{Binding SelectedItem.Контрагент, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectionChanged="listEditKa_SelectionChanged"/>
@@ -73,12 +73,16 @@ Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectedDateChanged="DatePickerEditShip_SelectedDateChanged"/>
             <DatePicker x:Name="DatePickerEditPay" Text="{Binding SelectedItem.ДатаОплаты, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
+            
             <ComboBox x:Name="listEditManager" Text="{Binding SelectedItem.Менеджер, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
 
             <TextBox x:Name="txtEditID" Text="{Binding SelectedItem.ID, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
-            
+
+            <TextBox x:Name="txtOplata" Text="{Binding SelectedItem.Оплата, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
+
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="400" Width="220">

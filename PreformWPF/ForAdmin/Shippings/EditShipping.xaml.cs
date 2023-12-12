@@ -59,7 +59,8 @@ namespace PreformWPF
                     " ka_city 'Город'," +
                     " date_format(date_ship, '%d/%m/%Y') 'ДатаОтгрузки'," +
                     " date_format(date_pay, '%d/%m/%Y') 'ДатаОплаты'," +
-                    " manager 'Менеджер' from preform.shippings";
+                    " manager 'Менеджер', " +
+                    " oplata 'Оплата' from preform.shippings";
                 MySqlCommand cmd = new MySqlCommand(querystring, con);
                 cmd.ExecuteNonQuery();
 
@@ -103,7 +104,8 @@ namespace PreformWPF
                 string editstring = $"update preform.shippings set status = @st, ka_name = @ka, " +
                                 $"ka_city = @city, date_ship = @ds, " +
                                 "date_pay = @dp, " +
-                                $"manager = @mn where id_shipping = '"+txtEditID.Text+"'";
+                                $"manager = @mn, " +
+                                $"oplata = @op where id_shipping = '"+txtEditID.Text+"'";
                 MySqlCommand cmd = new MySqlCommand(editstring, con);
                 cmd.Parameters.AddWithValue("@st", listEditStatus.Text);
                 cmd.Parameters.AddWithValue("@ka", listEditKa.Text);
@@ -111,6 +113,19 @@ namespace PreformWPF
                 cmd.Parameters.AddWithValue("@city", txtEditCity.Text);
                 cmd.Parameters.AddWithValue("@ds", DatePickerEditShip.SelectedDate.Value);
                 cmd.Parameters.AddWithValue("@dp", DatePickerEditPay.SelectedDate.Value);
+                //if (listEditStatus.Text == "Оплачен")
+                //{
+                //    txtOplata.Text = "Оплачен";
+                //}
+                //else if (listEditStatus.Text == "Отгружен")
+                //{
+                //    txtOplata.Text = "Не оплачен";
+                //}
+                //else
+                //{
+                //    txtOplata.Text = "unknown";
+                //}
+                cmd.Parameters.AddWithValue("@op", txtOplata.Text);
                 int i = cmd.ExecuteNonQuery();
                 if (i > -1)
                 {
@@ -173,7 +188,7 @@ namespace PreformWPF
         {
             DateTime datepay = DatePickerEditShip.SelectedDate.Value;
             datepay = datepay.AddDays(30);
-            DatePickerEditPay.Text = datepay.ToString("dd//MM/yyyy");
+            DatePickerEditPay.Text = datepay.ToString("dd/MM/yyyy");
             //dgEditShipping
         }
 
@@ -190,6 +205,23 @@ namespace PreformWPF
             while (drSELcity.Read())
             {
                 txtEditCity.Text = drSELcity.GetValue(0).ToString();
+            }
+            con.Close();
+        }
+
+        private void listEditStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+            string selectstringOplata = $"select pay_name from preform.status_shipping where status_name = '{listEditStatus.SelectedItem}'";
+            MySqlCommand cmdSELOplata = new MySqlCommand(selectstringOplata, con);
+            MySqlDataReader drSELOplata = cmdSELOplata.ExecuteReader();
+            while (drSELOplata.Read())
+            {
+                txtOplata.Text = drSELOplata.GetValue(0).ToString();
             }
             con.Close();
         }

@@ -49,8 +49,8 @@ namespace PreformWPF
 
         public void InsertAuto()
         {
-            string querystring = "insert into shippings(status, ka_name, ka_city, date_ship, date_pay, manager)" +
-                "values (@st, @ka, @city, @ds, @dp, @mn)";
+            string querystring = "insert into shippings(status, ka_name, ka_city, date_ship, date_pay, manager, oplata)" +
+                "values (@st, @ka, @city, @ds, @dp, @mn, @op)";
 
             MySqlCommand cmd = new MySqlCommand(querystring, con);
             cmd.Parameters.AddWithValue("@st", listStatus.Text);
@@ -62,7 +62,9 @@ namespace PreformWPF
             DateTime datepay = DatePickerShip.SelectedDate.Value;
             datepay = datepay.AddDays(30);
             cmd.Parameters.AddWithValue("@dp", datepay);
-            
+
+            cmd.Parameters.AddWithValue("@op", txtOplata.Text);
+
 
             int a = cmd.ExecuteNonQuery();
             if (a == 1)
@@ -159,6 +161,23 @@ namespace PreformWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void listStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+            string selectstringOplata = $"select pay_name from preform.status_shipping where status_name = '{listStatus.SelectedItem}'";
+            MySqlCommand cmdSELOplata = new MySqlCommand(selectstringOplata, con);
+            MySqlDataReader drSELOplata = cmdSELOplata.ExecuteReader();
+            while (drSELOplata.Read())
+            {
+                txtOplata.Text = drSELOplata.GetValue(0).ToString();
+            }
+            con.Close();
         }
     }
 }

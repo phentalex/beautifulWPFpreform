@@ -32,12 +32,6 @@ namespace PreformWPF
             con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString.ToString();
         }
 
-        private void btn_Add_Click(object sender, RoutedEventArgs e)
-        {
-            AddShipping addsh = new AddShipping();
-            addsh.Show();
-        }
-
         private void dgShipping_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
 
@@ -63,7 +57,8 @@ namespace PreformWPF
                     " ka_city 'Город'," +
                     " date_format(date_ship, '%d/%m/%Y') 'Дата отгрузки'," +
                     " date_format(date_add(date_ship, interval 30 day), '%d/%m/%Y') 'Дата оплаты'," +
-                    " manager 'Менеджер' from preform.shippings";
+                    " manager 'Менеджер'," +
+                    " oplata 'Оплата' from preform.shippings";
                 MySqlCommand cmd = new MySqlCommand(querystring, con);
                 cmd.ExecuteNonQuery();
 
@@ -80,10 +75,10 @@ namespace PreformWPF
             }
         }
 
-        private void btn_Add_Click_1(object sender, RoutedEventArgs e)
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-            AddShipping AddSh = new AddShipping();
-            AddSh.Show();
+            AddShipping addsh = new AddShipping();
+            addsh.Show();
         }
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)

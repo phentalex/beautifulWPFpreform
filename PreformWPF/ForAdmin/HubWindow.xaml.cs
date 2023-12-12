@@ -55,5 +55,10 @@ namespace PreformWPF
         {
             Main.Content = new Page6();
         }
+
+        private void Page7_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Page7();
+        }
     }
 }

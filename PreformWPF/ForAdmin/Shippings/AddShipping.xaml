@@ -56,7 +56,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="400" Height="400">
 
             <ComboBox x:Name="listStatus" Text="{Binding SelectedItem.Статус, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
-Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectionChanged="listStatus_SelectionChanged"/>
 
             <ComboBox x:Name="listKa" Text="{Binding SelectedItem.Контрагент, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectionChanged="listKa_SelectionChanged"/>
@@ -69,6 +69,8 @@ Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" SelectedDa
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
             <ComboBox x:Name="listManager" Text="{Binding SelectedItem.Менеджер, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14" />
+            <TextBox x:Name="txtOplata" Text="{Binding SelectedItem.Оплата, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
+Foreground="#610C9F" Background="#F1EAFF" Height="27.6" FontSize="14"/>
 
         </StackPanel>
 
