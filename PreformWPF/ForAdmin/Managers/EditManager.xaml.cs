@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -86,17 +87,30 @@ namespace PreformWPF
         {
             try
             {
-                string editstring = $"update preform.managers set manager_firstname = @fn, manager_secondname = @sn, " +
-                                $"manager_phone = @ph, manager_email = @em where id_manager = '" + txtManagerID.Text + "'";
-                MySqlCommand cmd = new MySqlCommand(editstring, con);
-                cmd.Parameters.AddWithValue("@fn", txtName.Text);
-                cmd.Parameters.AddWithValue("@sn", txtSurname.Text);
-                cmd.Parameters.AddWithValue("@ph", txtPhone.Text);
-                cmd.Parameters.AddWithValue("@em", txtEmail.Text);
-                int a = cmd.ExecuteNonQuery();
-                if (a == 1)
+                string lineEmail = txtEmail.Text;
+                string linePhone = txtPhone.Text;
+                Regex regexEmail = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+                Regex regexPhone = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
+                Match matchEmail = regexEmail.Match(lineEmail);
+                Match matchPhone = regexPhone.Match(linePhone);
+                if (matchEmail.Success == true && matchPhone.Success == true)
                 {
-                    MessageBox.Show("Данные успешно изменены!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    string editstring = $"update preform.managers set manager_firstname = @fn, manager_secondname = @sn, " +
+                                $"manager_phone = @ph, manager_email = @em where id_manager = '" + txtManagerID.Text + "'";
+                    MySqlCommand cmd = new MySqlCommand(editstring, con);
+                    cmd.Parameters.AddWithValue("@fn", txtName.Text);
+                    cmd.Parameters.AddWithValue("@sn", txtSurname.Text);
+                    cmd.Parameters.AddWithValue("@ph", txtPhone.Text);
+                    cmd.Parameters.AddWithValue("@em", txtEmail.Text);
+                    int a = cmd.ExecuteNonQuery();
+                    if (a == 1)
+                    {
+                        MessageBox.Show("Данные успешно изменены!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Неверно указан телефон или Email", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)

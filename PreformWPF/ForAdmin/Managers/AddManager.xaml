@@ -61,10 +61,10 @@ Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#
 
             <TextBox x:Name="txtPhone" Text="{Binding SelectedItem.Телефон, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#713ABE" Height="27.6" FontSize="14"
-                     materialDesign:HintAssist.Hint="Введите телефон сотрудника"/>
+                     materialDesign:HintAssist.Hint="Введите телефон сотрудника 89*********"/>
             <TextBox x:Name="txtEmail" Text="{Binding SelectedItem.МПочта, ElementName=dgEditShipping}" Width="300" VerticalAlignment="Top" Margin="20"
 Foreground="#610C9F" Background="#F1EAFF" CaretBrush="#713ABE" SelectionBrush="#713ABE" Height="27.6" FontSize="14" 
-                     materialDesign:HintAssist.Hint="Введите почту сотрудника"/>
+                     materialDesign:HintAssist.Hint="Введите почту сотрудника ***@**.**"/>
 
         </StackPanel>
 
